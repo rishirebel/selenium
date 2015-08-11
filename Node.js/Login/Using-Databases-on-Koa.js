@@ -28,7 +28,7 @@ app.use( function* (next){
   this.body = (some);
   yield next;
   console.log(some);
-  console.log("****THIS COMES SIXTH AS PER CALLBACKS****");
+  console.log("****THIS COMES FIFTH AS PER YIELDS****");
   console.log("}");
  });
 
@@ -42,7 +42,7 @@ app.use(function * (next){
   this.body = foo;
   yield next;
   console.log(foo);
-  console.log("****THIS COMES FIFTH AS PER CALLBACKS****");
+  console.log("****THIS COMES FOURTH AS PER YIELDS****");
 })
 app.use(function * (next){
   redis.hset('metal','metal 1','Titanium');
@@ -54,7 +54,7 @@ app.use(function * (next){
   this.body = faa;
   yield next;
   console.log(faa);
-  console.log("****THIS COMES FOURTH AS PER CALLBACKS****");
+  console.log("****THIS COMES THIRD AS PER YIELDS****");
 })
 app.use(function * (next){
   redis.lpush('elements','Ti');
@@ -64,7 +64,7 @@ app.use(function * (next){
   this.body = faz;
   yield next;
   console.log(faz);
-  console.log("****THIS COMES THIRD AS PER CALLBACKS****");
+  console.log("****THIS COMES SECOND AS PER YIELDS****");
   redis.lpop('elements');
   redis.lpop('elements');
   redis.lpop('elements');
@@ -76,7 +76,7 @@ app.use( function * (next){
   this.body = rowy;
   yield next;
   console.log(rowy);
-  console.log("****THIS COMES SECOND AS PER CALLBACKS****");
+  console.log("****THIS COMES FIRST AS PER YIELDS****");
 });
 
 app.use(function *(next){
@@ -101,7 +101,7 @@ app.use(function *(next){
 
 
       });
-      console.log('****THIS COMES FIRST AS PER CALLBACKS****');
+      console.log('****THIS COMES LAST AS PER YIELDS****');
         console.log("}");
     }
   });
